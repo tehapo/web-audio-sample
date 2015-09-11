@@ -15,6 +15,7 @@ bower install web-audio-sample --save
 <web-audio-sample src="sine-wave.wav"></web-audio-sample>
 <web-audio-sample src="sine-wave.wav" playback-rate="1.0"></web-audio-sample>
 <web-audio-sample src="sine-wave.wav" autoplay></web-audio-sample>
+<web-audio-sample src="sine-wave.wav" loop></web-audio-sample>
 ```
 
 ### Development
