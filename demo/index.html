@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Demo page for &lt;web-audio-sample&gt;</title>
+
+        <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+        <link rel="import" href="../web-audio-sample.html">
+
+        <style>
+            html, body {
+                text-align: center;
+                height: 100%;
+            }
+            body {
+                background: url(noise.png);
+            }
+            section {
+                position: relative;
+                top: 50%;
+                margin-top: -120px;
+            }
+            button {
+                background: #fff;
+                font-size: 40px;
+                font-family: sans-serif;
+                width: 130px;
+                height: 130px;
+                border: 20px solid #00b4f0;
+                border-radius: 50%;
+                outline: none;
+                box-shadow: 0 1px 10px #000;
+                -webkit-transition: all 80ms;
+                transition: all 80ms;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+            button:active,
+            button.active {
+                -webkit-transform: scale(0.95) translateZ(0);
+                transform: scale(0.95) translateZ(0);
+                box-shadow: 0 1px 5px #000;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <button>
+                <web-audio-sample src="sine-wave.wav"></web-audio-sample>
+                <span>C</span>
+            </button>
+            <button>
+                <web-audio-sample src="sine-wave.wav" playback-rate="1.1224247984"></web-audio-sample>
+                <span>D</span>
+            </button>
+            <button>
+                <web-audio-sample src="sine-wave.wav" playback-rate="1.2599090318"></web-audio-sample>
+                <span>E</span>
+            </button>
+            <button>
+                <web-audio-sample src="sine-wave.wav" playback-rate="1.3348239881"></web-audio-sample>
+                <span>F</span>
+            </button>
+            <button>
+                <web-audio-sample src="sine-wave.wav" playback-rate="1.4982991247"></web-audio-sample>
+                <span>G</span>
+            </button>
+            <button>
+                <web-audio-sample src="sine-wave.wav" playback-rate="1.6817643237"></web-audio-sample>
+                <span>A</span>
+            </button>
+            <button>
+                <web-audio-sample src="sine-wave.wav" playback-rate="1.8877040095"></web-audio-sample>
+                <span>B</span>
+            </button>
+            <button>
+                <web-audio-sample src="sine-wave.wav" playback-rate="2"></web-audio-sample>
+                <span>C</span>
+            </button>
+        </section>
+        <script>
+            var buttons = document.querySelectorAll('button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener('click', function() {
+                    this.children[0].play();
+                });
+            }
+        </script>
+    </body>
+</html>
