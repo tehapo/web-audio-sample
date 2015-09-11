@@ -12,6 +12,12 @@
     "test",
     "tests"
   ],
+  "keywords": [
+    "polymer",
+    "web-components",
+    "web-audio",
+    "audio"
+  ],
   "dependencies": {
     "polymer": "~1.1.3",
     "iron-ajax": "polymerelements/iron-ajax#~1.0.4"
