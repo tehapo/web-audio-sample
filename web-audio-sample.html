@@ -2,51 +2,51 @@
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 
 <dom-module id="web-audio-sample">
-    <template>
-        <iron-ajax auto url="[[src]]" handle-as="arraybuffer" on-response="_handleResponse"></iron-ajax>
-    </template>
-    <script>
-        (function() {
+  <template>
+    <iron-ajax auto url="[[src]]" handle-as="arraybuffer" on-response="_handleResponse"></iron-ajax>
+  </template>
+  <script>
+    (function() {
 
-            // Shared AudioContext for all instances of this element.
-            var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      // Shared AudioContext for all instances of this element.
+      var audioContext = new(window.AudioContext || window.webkitAudioContext)();
 
-            Polymer({
-                is: 'web-audio-sample',
+      Polymer({
+        is: 'web-audio-sample',
 
-                properties: {
-                    src: String,
-                    playbackRate: {
-                        type: Number,
-                        value: 1
-                    },
-                    autoplay: Boolean,
-                    loop: Boolean,
-                    _audioBuffer: Object
-                },
+        properties: {
+          src: String,
+          playbackRate: {
+            type: Number,
+            value: 1
+          },
+          autoplay: Boolean,
+          loop: Boolean,
+          _audioBuffer: Object
+        },
 
-                play: function() {
-                    if (audioContext && this._audioBuffer) {
-                        var source = audioContext.createBufferSource();
-                        source.buffer = this._audioBuffer;
-                        source.connect(audioContext.destination);
-                        source.playbackRate.value = this.playbackRate;
-                        source.loop = this.loop;
-                        source.start(0);
-                    }
-                },
+        play: function() {
+          if (audioContext && this._audioBuffer) {
+            var source = audioContext.createBufferSource();
+            source.buffer = this._audioBuffer;
+            source.connect(audioContext.destination);
+            source.playbackRate.value = this.playbackRate;
+            source.loop = this.loop;
+            source.start(0);
+          }
+        },
 
-                _handleResponse: function(event, request) {
-                    if (audioContext) {
-                        audioContext.decodeAudioData(request.response, function(buffer) {
-                            this._audioBuffer = buffer;
-                            if (this.autoplay) {
-                                this.play();
-                            }
-                        }.bind(this));
-                    }
-                }
-            });
-        }());
-    </script>
+        _handleResponse: function(event, request) {
+          if (audioContext) {
+            audioContext.decodeAudioData(request.response, function(buffer) {
+              this._audioBuffer = buffer;
+              if (this.autoplay) {
+                this.play();
+              }
+            }.bind(this));
+          }
+        }
+      });
+    }());
+  </script>
 </dom-module>
