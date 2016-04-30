@@ -85,6 +85,9 @@
                     this.children[0].play();
                 });
             }
+            document.addEventListener('sample-loaded', function(e) {
+              console.log(e);
+            });
         </script>
     </body>
 </html>

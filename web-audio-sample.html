@@ -43,6 +43,7 @@
               if (this.autoplay) {
                 this.play();
               }
+              this.fire('sample-loaded');
             }.bind(this));
           }
         }
