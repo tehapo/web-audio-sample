@@ -25,15 +25,19 @@
           _audioBuffer: Object
         },
 
-        play: function() {
+        play: function(when) {
           if (audioContext && this._audioBuffer) {
             var source = audioContext.createBufferSource();
             source.buffer = this._audioBuffer;
             source.connect(audioContext.destination);
             source.playbackRate.value = this.playbackRate;
             source.loop = this.loop;
-            source.start(0);
+            source.start(when);
           }
+        },
+
+        playAfter: function(seconds) {
+          this.play(audioContext.currentTime + seconds);
         },
 
         _handleResponse: function(event, request) {
