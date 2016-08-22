@@ -32,7 +32,7 @@
             source.connect(audioContext.destination);
             source.playbackRate.value = this.playbackRate;
             source.loop = this.loop;
-            source.start(when);
+            source.start(when || 0);
           }
         },
 
